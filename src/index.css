@@ -3,11 +3,13 @@
 :root {
   --primary: #09366D;
   --primary-light: #1b5aa7;
-  --bg: #d6e2f3;
+  --bg: #e4ebf5;
 }
 
 html {
   overflow: hidden;
+
+
 }
 
 body {

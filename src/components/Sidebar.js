@@ -5,13 +5,15 @@ import logo from "../assets/logo_small_white.png"
 
 
 const Sidebar = ({
-    handleLogout
+    handleLogout,
+    page,
+    setPage
 }) => {
     return (
         <div className={styles.component}>
             <img src={logo} className={styles.logo} alt="" />
             <div className={styles.linksContainer}>
-                <button className={styles.navItem}>
+                <button className={`${styles.navItem} ${(page === "dashboard") ? styles.navItemSelected: ''}`}>
                     <MdDashboard className={styles.navIcon} />
                     <p>Dashboard</p>
                 </button>

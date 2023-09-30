@@ -6,10 +6,13 @@ import { useNavigate } from 'react-router-dom'
 import { signOut } from "firebase/auth";
 import Sidebar from "../components/Sidebar";
 import { Store } from 'react-notifications-component';
+import Dashboard from "../components/dashboard/Dashboard";
 
 
 const Portal = () => {
     const navigate = useNavigate();
+
+    const [page, setPage] = useState("dashboard")
 
     const [user, setUser] = useState(null);
     useEffect(() => {
@@ -52,8 +55,8 @@ const Portal = () => {
     }
     return (
         <div className={styles.page}>
-            <Sidebar {...{ handleLogout }} />
-
+            <Sidebar {...{ handleLogout, page, setPage }} />
+            <Dashboard {...{user}}/>
         </div>
     );
 }

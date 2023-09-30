@@ -1,0 +1,163 @@
+.subpage {
+    margin-left: 20vw;
+    margin-right: 24px;
+    padding-top: 32px;
+    padding-bottom: 48px;
+    height: 100vh;
+    display: flex;
+    gap: 16px;
+    box-sizing: border-box;
+}
+
+.leftWrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 18px
+}
+
+.rightWrapper {
+    height: 100%;
+    width: 20vw !important; 
+
+
+}
+
+.actionWrapper {
+    height: 70px;
+    display: flex;
+    gap: 12px;
+}
+
+.actionIcon {
+    height: 40px;
+    margin: 4px;
+}
+
+.actionCard {
+    background: var(--primary);
+    color: #fff;
+    width: 140px;
+    border-radius: 8px;
+    height: 100%;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: none;
+    cursor: pointer;
+}
+
+.actionCard p {
+    margin: 4px 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.actionCard:hover {
+    background: var(--primary-light);
+}
+
+.welcomeCard {
+    background: #fff;
+    border-radius: 8px;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.welcomeCard img {
+    width: 120px;
+}
+
+.progressCard {
+    background: #fff;
+    border-radius: 8px;
+    padding: 12px 24px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.progressItem {
+    border-left: 2px solid var(--primary);
+    padding-left: 12px;
+    margin: 28px 0;
+}
+
+.progressItem h3 {
+    margin: 4px 0;
+}
+
+.progressItem p {
+    font-size: 14px;
+    margin: 4px 0;
+}
+
+.forYouCard {
+    background: #fff;
+    border-radius: 8px;
+    padding: 12px;
+    padding-bottom: 0;
+    height: 100%;
+}
+
+.forYouCard h3 {
+    margin: 8px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.courseContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    height: 85%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+
+    
+}
+.courseCard {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 1px 4px;
+    padding: 8px 12px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.courseCard img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+}
+
+.courseCard:hover {
+    background: #f0f0f0;
+}
+.courseCard p {
+    margin: 4px 0;
+    font-size: 12px
+}
+
+.courseCard h4 {
+    margin: 2px 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+}

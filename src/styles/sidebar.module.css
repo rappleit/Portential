@@ -31,6 +31,11 @@
     background: var(--primary-light);
 }
 
+.navItemSelected {
+    background: var(--primary-light);
+
+}
+
 .navIcon {
     font-size: 19px;
 }
