@@ -3,40 +3,59 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from '../firebase';
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom'
-import {  signOut } from "firebase/auth";
+import { signOut } from "firebase/auth";
+import Sidebar from "../components/Sidebar";
+import { Store } from 'react-notifications-component';
 
 
 const Portal = () => {
     const navigate = useNavigate();
 
     const [user, setUser] = useState(null);
-    useEffect(()=>{
+    useEffect(() => {
         onAuthStateChanged(auth, (authUser) => {
             if (authUser) {
-              setUser(authUser)
+                setUser(authUser)
             } else {
                 navigate("/")
             }
-          });
-         
+        });
+
     }, [])
 
-    const handleLogout = () => {               
+    const handleLogout = () => {
         signOut(auth).then(() => {
             navigate("/");
-            console.log("Logged out successfully")
-        }).catch((error) => {
+            Store.addNotification({
+                title: "Success",
+                message: "You have been logged out successfully",
+                type: "success",
+                container: "bottom-right",
+                dismiss: {
+                  duration: 5000,
+                  onScreen: true
+                }
+              });
 
+        }).catch((error) => {
+            Store.addNotification({
+                title: "Error",
+                message: error.message,
+                type: "danger",
+                container: "bottom-right",
+                dismiss: {
+                    duration: 5000,
+                    onScreen: true
+                }
+            });
         });
     }
-    return ( 
+    return (
         <div className={styles.page}>
-            <h1>Hi</h1>
-            <button onClick={handleLogout}>
-                        Logout
-                    </button>
+            <Sidebar {...{ handleLogout }} />
+
         </div>
-     );
+    );
 }
- 
+
 export default Portal;

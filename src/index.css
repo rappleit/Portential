@@ -3,6 +3,7 @@
 :root {
   --primary: #09366D;
   --primary-light: #1b5aa7;
+  --bg: #d6e2f3;
 }
 
 html {
@@ -11,5 +12,7 @@ html {
 
 body {
   font-family: 'Nunito Sans', sans-serif;
-  background-color: rgb(186, 206, 206);
+  background-color: var(--bg);
+  padding: 0;
+  margin: 0;
 }

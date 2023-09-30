@@ -1,0 +1,36 @@
+.component {
+    width: 18vw;
+    background: var(--primary);
+    height: 100vh;
+    padding: 32px 18px;
+    box-sizing: border-box;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 70%;
+    align-self: center;
+}
+
+.navItem {
+    display: flex;
+    align-items: center;
+    background: none;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    gap: 12px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.navItem:hover {
+    background: var(--primary-light);
+}
+
+.navIcon {
+    font-size: 19px;
+}
