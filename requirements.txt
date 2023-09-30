@@ -17,6 +17,7 @@ fastapi==0.102.0
 ffmpy==0.3.1
 filelock==3.12.2
 Flask==2.3.3
+Flask-Cors==4.0.0
 fonttools==4.42.1
 frozenlist==1.4.0
 fsspec==2023.6.0

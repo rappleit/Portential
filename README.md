@@ -24,3 +24,17 @@ pip install -r requirements.txt
 ```
 
 from within your virtual environment.
+
+## Deployment
+
+First, start the Python backend.
+
+```
+flask --app app run
+```
+
+On a separate terminal, start the React localhost.
+
+```
+npm start
+```
