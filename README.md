@@ -4,16 +4,23 @@ Team slaysians' entry for PSA Code Sprint 2023
 
 ## Installation
 
-React dependencies
+### React dependencies
 
 ```
 yarn add beautiful-skill-tree
 ```
 
-Python dependencies
+### Python dependencies
 
 ```
-[MacOS]   > psa/bin/activate
-[Windows] $ psa\bin\activate
+[MacOS]   > source psa/bin/activate
+[Windows] $ source psa\bin\activate
+```
+
+Or, to start from scratch, run
+
+```
 pip install -r requirements.txt
 ```
+
+from within your virtual environment.
