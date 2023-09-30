@@ -4,8 +4,8 @@ import os
 from typing import List
 
 from dotenv import load_dotenv
-from flask import Flask
-from flask import abort, request, make_response
+from flask import Flask, json, make_response, request
+from flask_cors import CORS
 
 from nltk.stem.porter import PorterStemmer
 import openai
@@ -19,6 +19,7 @@ logger = logging.getLogger(__name__)
 # Set up the Flask application
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1000 * 1000
+CORS(app)
 
 
 # Configure the OpenAI API key
@@ -27,27 +28,23 @@ openai.api_key = os.getenv("REACT_APP_OPENAI_API")
 
 
 # Set up recommender system
-df, similarity = None, None
-init_recommender()
+df = None
 
 
 @app.route("/api", methods=['POST'])
 def handle():
-    if request.method != 'POST':
-        logger.error('Not post method!')
-        return
-    elif not request.text:
-        logger.error('No text to process!')
-        abort(400)
+    text = json.loads(request.data)['text']
 
     # Generate and process response
-    gen_response = query_to_response(request.text)
+    gen_response = query_to_response(text)
     results = defaultdict(int)
     for line in gen_response.split('\n'):
         for course in recommend(line, 10):
             results[course] += 1
 
     # Send recommendations back to frontend
+    if not results:
+        logger.error('No courses recommended!')
     response = make_response({
         'ans': sorted(results, reverse=True, key=lambda k: results[k])[:5]
     })
@@ -88,57 +85,57 @@ def stem(text: str) -> str:
 
 
 def init_recommender() -> None:
-    global df, similarity
+    global df, vectors
 
-    data = pd.read_csv('Coursera.csv')
-    data = data[['Course Name', 'Difficulty Level', 'Course Description', 'Skills']]
+    df = pd.read_csv('Coursera.csv')
+    df = df[['Course Name', 'Difficulty Level', 'Course Description']]
 
     # Removing spaces between the words (Lambda funtions can be used as well)
-    data['Course Name'] = data['Course Name'].str.replace(' ',',')
-    data['Course Name'] = data['Course Name'].str.replace(',,',',')
-    data['Course Name'] = data['Course Name'].str.replace(':','')
-    data['Course Description'] = data['Course Description'].str.replace(' ',',')
-    data['Course Description'] = data['Course Description'].str.replace(',,',',')
-    data['Course Description'] = data['Course Description'].str.replace('_','')
-    data['Course Description'] = data['Course Description'].str.replace(':','')
-    data['Course Description'] = data['Course Description'].str.replace('(','')
-    data['Course Description'] = data['Course Description'].str.replace(')','')
-    # Removing paranthesis from skills columns
-    data['Skills'] = data['Skills'].str.replace('(','')
-    data['Skills'] = data['Skills'].str.replace(')','')
+    df['Course Name'].replace(' ', ',', inplace=True)
+    df['Course Name'].replace(',,', ',', inplace=True)
+    df['Course Name'].replace(':', '', inplace=True)
+    df['Course Description'].replace(' ', ',', inplace=True)
+    df['Course Description'].replace(',,', ',', inplace=True)
+    df['Course Description'].replace('_', '', inplace=True)
+    df['Course Description'].replace(':', '', inplace=True)
+    df['Course Description'].replace('(', '', inplace=True)
+    df['Course Description'].replace(')', '', inplace=True)
+
     # Adding a new tags column
-    data['tags'] = data['Course Name'] + data['Difficulty Level'] + data['Course Description'] + data['Skills']
+    df['tags'] = df['Course Name'] + df['Difficulty Level'] + df['Course Description']
+    df['tags'].replace(',', ' ', inplace=True)
+    df['tags'] = df['tags'].apply(lambda s: s.lower())
 
     # Create a new DataFrame
-    df = data[['Course Name', 'tags']]
-    df['tags'] = data['tags'].str.replace(',',' ')
-    df['Course Name'] = data['Course Name'].str.replace(',',' ')
-    df.rename(
-        columns={
-            'Course Name': 'course_name'
-        },
-        inplace=True
-    )
-    df['tags'] = df['tags'].apply(lambda x: x.lower())
+    df = df[['Course Name', 'tags']]
 
-    cv = CountVectorizer(max_features=5000, stop_words='english')  # Text Vectorization
+
+init_recommender()
+
+
+def recommend(text: str, n: int) -> List[str]:
+    global df
+
+    if df is None:
+        logger.error('Recommender system not initialised!')
+        return
+
+    # Pre-process course
+    tag = text.replace(' ', ',').replace(',,', ',').replace(':', '').replace(',', ' ').lower()
+    df.loc[len(df)] = ['-', tag]
+
+    # Perform NLP processing
+    cv = CountVectorizer(max_features=5000, stop_words='english')
     vectors = cv.fit_transform(df['tags']).toarray()
-    df['tags'] = df['tags'].apply(stem) # Stemming
+    df['tags'] = df['tags'].apply(stem)
     similarity = cosine_similarity(vectors)
 
-
-def recommend(course: str, n: int) -> List[str]:
-    global df, similarity
-
-    if df is None or similarity is None:
-        logger.error('Recommender system not initialised!')
-        return []
-
-    course_index = df[df['course_name'] == course].index[0]
+    # Find similar courses
+    course_index = df[df['Course Name'] == '-'].index[0]
     distances = similarity[course_index]
     m = len(distances)
     course_list = sorted(
         list(enumerate(distances)),
         reverse=True,
-        key=lambda x:x[1])[1:min(n + 1, m)]
-    return [df.iloc[course[0]].course_name for course in course_list]
+        key=lambda x:x[1])[1:min(n + 1, m)]  # Exclude the dummy course
+    return [df.iloc[course[0]]['Course Name'] for course in course_list]
