@@ -1,0 +1,96 @@
+.page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+}
+
+.bg {
+    box-sizing: border-box;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    background: url('../assets/login_bg.jpg') no-repeat center center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -5;
+}
+
+.card {
+    background: rgba( 255, 255, 255, 0.8);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 9px );
+    -webkit-backdrop-filter: blur( 10px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40vw;
+    height: auto;
+    padding: 32px;
+    border-radius: 8px;
+}
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+
+.form h2 {
+    font-weight: 800;
+}
+
+.form form {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.formItem {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 12px 0;
+
+}
+
+.formItem label {
+    font-weight: 700;
+}
+
+.formItem input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #000;
+    font-size: 16px;
+    padding: 4px 0;
+    background: none;
+}
+
+.form button {
+    margin: 12px 0;
+    padding: 12px 0;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 4px;
+}
+
+.form button:hover {
+    background: var(--primary-light);
+}
