@@ -7,6 +7,7 @@ import { signOut } from "firebase/auth";
 import Sidebar from "../components/Sidebar";
 import { Store } from 'react-notifications-component';
 import Dashboard from "../components/dashboard/Dashboard";
+import Portfolio from "../components/PORTfolio/Portfolio";
 
 
 const Portal = () => {
@@ -56,7 +57,9 @@ const Portal = () => {
     return (
         <div className={styles.page}>
             <Sidebar {...{ handleLogout, page, setPage }} />
-            <Dashboard {...{user}}/>
+            {(page === "dashboard") ? <Dashboard {...{user}}/> : <></>}
+            {(page === "portfolio") ? <Portfolio {...{user}}/> : <></>}
+
         </div>
     );
 }

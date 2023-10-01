@@ -13,23 +13,23 @@ const Sidebar = ({
         <div className={styles.component}>
             <img src={logo} className={styles.logo} alt="" />
             <div className={styles.linksContainer}>
-                <button className={`${styles.navItem} ${(page === "dashboard") ? styles.navItemSelected: ''}`}>
+                <button onClick={()=>setPage("dashboard")} className={`${styles.navItem} ${(page === "dashboard") ? styles.navItemSelected: ''}`}>
                     <MdDashboard className={styles.navIcon} />
                     <p>Dashboard</p>
                 </button>
-                <button className={styles.navItem}>
+                <button onClick={()=>setPage("portfolio")} className={`${styles.navItem} ${(page === "portfolio") ? styles.navItemSelected: ''}`}>
                     <MdFolderSpecial className={styles.navIcon} />
                     <p>PORTfolio</p>
                 </button>
-                <button className={styles.navItem}>
+                <button onClick={()=>setPage("skilltree")} className={`${styles.navItem} ${(page === "skilltree") ? styles.navItemSelected: ''}`}>
                     <MdAccountTree className={styles.navIcon} />
                     <p>Skill Tree</p>
                 </button>
-                <button className={styles.navItem}>
+                <button onClick={()=>setPage("tasks")} className={`${styles.navItem} ${(page === "tasks") ? styles.navItemSelected: ''}`}>
                     <FaTasks className={styles.navIcon} />
                     <p>Tasks</p>
                 </button>
-                <button className={styles.navItem}>
+                <button onClick={()=>setPage("company")} className={`${styles.navItem} ${(page === "company") ? styles.navItemSelected: ''}`}>
                     <MdPeopleAlt className={styles.navIcon} />
                     <p>Company</p>
                 </button>

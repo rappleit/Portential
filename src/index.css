@@ -4,10 +4,11 @@
   --primary: #09366D;
   --primary-light: #1b5aa7;
   --bg: #e4ebf5;
+  --bg-dark: #ccd7e7;
 }
 
 html {
-  overflow: hidden;
+  overflow-x: hidden;
 
 
 }
