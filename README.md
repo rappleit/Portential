@@ -16,7 +16,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/rappleit/Portential.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/rappleit/Portential/stargazers/)
 [![GitHub forks](https://img.shields.io/github/forks/rappleit/Portential.svg?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/rappleit/Portential/network/)
 
-[Try Portential Now!]( portential.netlify.app)
+[**Try Portential Now!**](portential.netlify.app)
 
 ## DISCLAIMER!
 Our API keys are confidential. To retrieve the API keys, please refer to our documentation. 
