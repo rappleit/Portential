@@ -9,4 +9,59 @@
 
 }
 
+.topWrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 24px;
+}
 
+.roadmapWrapper {
+    flex: 1;
+    background: var(--bg-dark);
+    padding: 18px;
+    border-radius: 8px;
+
+}
+
+.currentSkillsCard {
+    width: 20vw;
+    background: #fff;
+    border-radius: 8px;
+    padding: 12px 24px;
+    align-self: stretch;
+    height: 500px;
+}
+
+.currentSkillsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    overflow-y: auto;
+    height: 80%;
+}
+
+.skillCard {
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 88px;
+    height: 100px;
+    text-align: center;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.skillCard p {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 4px 0;
+
+}
+
+.skillAppraisal {
+    font-size: 9px !important;
+    font-weight: 400 !important;
+}

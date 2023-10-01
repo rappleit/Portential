@@ -23,7 +23,7 @@ const Sidebar = ({
                 </button>
                 <button onClick={()=>setPage("skilltree")} className={`${styles.navItem} ${(page === "skilltree") ? styles.navItemSelected: ''}`}>
                     <MdAccountTree className={styles.navIcon} />
-                    <p>Skill Tree</p>
+                    <p>Skill Map</p>
                 </button>
                 <button onClick={()=>setPage("tasks")} className={`${styles.navItem} ${(page === "tasks") ? styles.navItemSelected: ''}`}>
                     <FaTasks className={styles.navIcon} />
@@ -31,7 +31,7 @@ const Sidebar = ({
                 </button>
                 <button onClick={()=>setPage("company")} className={`${styles.navItem} ${(page === "company") ? styles.navItemSelected: ''}`}>
                     <MdPeopleAlt className={styles.navIcon} />
-                    <p>Company</p>
+                    <p>Actions</p>
                 </button>
             </div>
             <button className={styles.navItem} onClick={() => handleLogout()}>
