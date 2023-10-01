@@ -40,7 +40,7 @@ Portential works in 3 simple steps.
 - [Hun Chong](https://github.com/hunchongtan)
 - [Zin](https://github.com/ziin2)
 
-We are all Term 3 students from the Singapore University of Technology and Design (SUTD).
+We are all Year 2 students from the Singapore University of Technology and Design (SUTD).
 
 ## Problem ⚠️
 
@@ -77,3 +77,5 @@ For testing, do use these provided test accounts:
 ## Other Resources 📑
 
 UI Design & Mockups:  Available on [Figma](https://www.figma.com/file/U8kzBmJ0wjR3TakWAUAcp0/Portential?type=design&node-id=10%3A9793&mode=design&t=5hjpPpNtuiy7jRWO-1)
+
+YouTube Link: https://youtu.be/Xw7mnYUVE5g?si=YzzrDzZk8J3f5JLn
