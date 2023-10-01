@@ -9,15 +9,29 @@ import ReactFlow, {
   } from "reactflow";
   import dagre from 'dagre';
 
-  
+  import 'reactflow/dist/style.css';
+
 const Map = () => {
   const skillsAndDependencies = [
-    { skill: 'Skill Map', dependsOn: null },
-    { skill: 'Self Management', dependsOn: 'Skill Map' },
-    { skill: 'Managing Stress', dependsOn: 'Skill Map' },
-    { skill: 'Skill D', dependsOn: 'Skill Map' },
-    { skill: 'Skill E', dependsOn: 'Self Management' },
-
+    { "skill": "Skill Map", "dependsOn": null },
+    { "skill": "Programming", "dependsOn": "Skill Map" },
+    { "skill": "Web Development", "dependsOn": "Programming" },
+    { "skill": "Front-end Development", "dependsOn": "Web Development" },
+    { "skill": "HTML", "dependsOn": "Front-end Development" },
+    { "skill": "CSS", "dependsOn": "Front-end Development" },
+    { "skill": "Back-end Development", "dependsOn": "Web Development" },
+    { "skill": "Node.js", "dependsOn": "Back-end Development" },
+    { "skill": "Database Management", "dependsOn": "Back-end Development" },
+    { "skill": "SQL", "dependsOn": "Database Management" },
+    { "skill": "UI/UX Design", "dependsOn": "Skill Map" },
+    { "skill": "User Research", "dependsOn": "UI/UX Design" },
+    { "skill": "Wireframing", "dependsOn": "UI/UX Design" },
+    { "skill": "Prototyping", "dependsOn": "UI/UX Design" },
+    { "skill": "Project Management", "dependsOn": "Skill Map" },
+    { "skill": "Agile Methodologies", "dependsOn": "Project Management" },
+    { "skill": "Scrum", "dependsOn": "Agile Methodologies" },
+    { "skill": "Communication Skills", "dependsOn": "Project Management" },
+    { "skill": "Team Leadership", "dependsOn": "Communication Skills" }
 
   ];
 

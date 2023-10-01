@@ -5,7 +5,6 @@
     padding-bottom: 48px;
     height: 140vh;
     box-sizing: border-box;
-    overflow-y: auto;
 
 }
 
@@ -64,4 +63,42 @@
 .skillAppraisal {
     font-size: 9px !important;
     font-weight: 400 !important;
+}
+
+.courseCard {
+    padding: 8px 12px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    background: #fff;
+    border-radius: 8px;
+    width: 200px;
+}
+
+.courseCard img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+}
+
+.courseCard:hover {
+    background: #f0f0f0;
+}
+.courseCard p {
+    margin: 4px 0;
+    font-size: 12px
+}
+
+.courseCard h4 {
+    margin: 2px 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
 }

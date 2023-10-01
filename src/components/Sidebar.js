@@ -29,7 +29,7 @@ const Sidebar = ({
                     <FaTasks className={styles.navIcon} />
                     <p>Tasks</p>
                 </button>
-                <button onClick={()=>setPage("company")} className={`${styles.navItem} ${(page === "company") ? styles.navItemSelected: ''}`}>
+                <button onClick={()=>setPage("actions")} className={`${styles.navItem} ${(page === "actions") ? styles.navItemSelected: ''}`}>
                     <MdPeopleAlt className={styles.navIcon} />
                     <p>Actions</p>
                 </button>

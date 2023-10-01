@@ -10,12 +10,14 @@ import Dashboard from "../components/dashboard/Dashboard";
 import Portfolio from "../components/PORTfolio/Portfolio";
 import SkillTreePage from "../components/skilltree/SkillTreePage";
 import Tasks from "../components/tasks/Tasks";
+import Actions from "../components/actions/Actions";
 
 
 const Portal = () => {
     const navigate = useNavigate();
 
     const [page, setPage] = useState("dashboard")
+    const [actionPage, setActionPage] = useState("main")
 
     const [user, setUser] = useState(null);
     useEffect(() => {
@@ -63,6 +65,7 @@ const Portal = () => {
             {(page === "portfolio") ? <Portfolio {...{user}}/> : <></>}
             {(page === "skilltree") ? <SkillTreePage {...{user}}/> : <></>}
             {(page === "tasks") ? <Tasks {...{user}}/> : <></>}
+            {(page === "actions") ? <Actions {...{user, actionPage, setActionPage}}/> : <></>}
 
         </div>
     );
