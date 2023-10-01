@@ -60,9 +60,8 @@ def query_to_response(query) -> str:
             "role": "system",
             "content": "The user is a department manager wanting to evaluate an employee's skillset. " +
                        "You are a helpful AI assistant that suggests courses to take based on the evaluation. " +
-                       "Suggested courses can be online or in-person and should lead to certification upon completion. " +
-                       "Replies should be a bullet-point list of courses and should not contain hyperlinks. " +
-                       "Do not hallucinate. If unsure, reply as such."
+                       "Replies should be a bullet-point list of courses summarised in under 50 words. " +
+                       "Do not hallucinate."
         },
         {
             "role": "user",
@@ -91,23 +90,22 @@ def init_recommender() -> None:
     df = df[['Course Name', 'Difficulty Level', 'Course Description']]
 
     # Removing spaces between the words (Lambda funtions can be used as well)
-    df['Course Name'].replace(' ', ',', inplace=True)
-    df['Course Name'].replace(',,', ',', inplace=True)
-    df['Course Name'].replace(':', '', inplace=True)
-    df['Course Description'].replace(' ', ',', inplace=True)
-    df['Course Description'].replace(',,', ',', inplace=True)
-    df['Course Description'].replace('_', '', inplace=True)
-    df['Course Description'].replace(':', '', inplace=True)
-    df['Course Description'].replace('(', '', inplace=True)
-    df['Course Description'].replace(')', '', inplace=True)
+    df['Course Name'] = df['Course Name'].str.replace(' ', ',')
+    df['Course Name'] = df['Course Name'].str.replace(',,', ',')
+    df['Course Name'] = df['Course Name'].str.replace(':', '')
+    df['Course Description'] = df['Course Description'].str.replace(' ', ',')
+    df['Course Description'] = df['Course Description'].str.replace(',,', ',')
+    df['Course Description'] = df['Course Description'].str.replace('_', '')
+    df['Course Description'] = df['Course Description'].str.replace(':', '')
+    df['Course Description'] = df['Course Description'].str.replace('(', '')
+    df['Course Description'] = df['Course Description'].str.replace(')', '')
 
     # Adding a new tags column
-    df['tags'] = df['Course Name'] + df['Difficulty Level'] + df['Course Description']
-    df['tags'].replace(',', ' ', inplace=True)
+    df['tags'] = df['Course Name'] + ',' + df['Difficulty Level'] + ',' + df['Course Description']
     df['tags'] = df['tags'].apply(lambda s: s.lower())
-
-    # Create a new DataFrame
-    df = df[['Course Name', 'tags']]
+    df['tags'] = df['tags'].str.replace(',', ' ')
+    df['tags'] = df['tags'].apply(stem)
+    df['Course Name'] = df['Course Name'].str.replace(',', ' ')
 
 
 init_recommender()
@@ -121,21 +119,17 @@ def recommend(text: str, n: int) -> List[str]:
         return
 
     # Pre-process course
-    tag = text.replace(' ', ',').replace(',,', ',').replace(':', '').replace(',', ' ').lower()
-    df.loc[len(df)] = ['-', tag]
+    tag = stem(text.replace(' ', ',').replace(',,', ',').replace(':', '').replace(',', ' ').lower())
 
     # Perform NLP processing
     cv = CountVectorizer(max_features=5000, stop_words='english')
-    vectors = cv.fit_transform(df['tags']).toarray()
-    df['tags'] = df['tags'].apply(stem)
+    vectors = cv.fit_transform(df['tags'].tolist() + [tag]).toarray()
     similarity = cosine_similarity(vectors)
+    #print(len(similarity))
+    #print(similarity.shape)
+    #print(similarity)
 
     # Find similar courses
-    course_index = df[df['Course Name'] == '-'].index[0]
-    distances = similarity[course_index]
-    m = len(distances)
-    course_list = sorted(
-        list(enumerate(distances)),
-        reverse=True,
-        key=lambda x:x[1])[1:min(n + 1, m)]  # Exclude the dummy course
-    return [df.iloc[course[0]]['Course Name'] for course in course_list]
+    #print(sorted(enumerate(similarity[-1]), reverse=True, key=lambda t: t[1]))
+    courses = sorted(enumerate(similarity[-1]), reverse=True, key=lambda t: t[1])[1:min(n + 1, len(similarity))]
+    return [df.loc[course[0]]['Course Name'] for course in courses]

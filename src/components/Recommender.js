@@ -9,6 +9,9 @@ export default function Recommender () {
             window.alert('Please enter your comments in the input field provided.');
             return;
         }
+        else if (courses !== '') {
+            setCourses(''); // Reset courses if needed
+        }
         let options = {
             method: 'POST',
             headers: new Headers({
