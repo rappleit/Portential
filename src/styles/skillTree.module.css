@@ -1,0 +1,9 @@
+.subpage {
+    margin-left: 20vw;
+    margin-right: 24px;
+    padding-top: 32px;
+    padding-bottom: 48px;
+    height: 140vh;
+    box-sizing: border-box;
+    overflow-y: auto;
+}

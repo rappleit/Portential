@@ -8,6 +8,7 @@ import Sidebar from "../components/Sidebar";
 import { Store } from 'react-notifications-component';
 import Dashboard from "../components/dashboard/Dashboard";
 import Portfolio from "../components/PORTfolio/Portfolio";
+import SkillTreePage from "../components/skilltree/SkillTreePage";
 
 
 const Portal = () => {
@@ -59,6 +60,7 @@ const Portal = () => {
             <Sidebar {...{ handleLogout, page, setPage }} />
             {(page === "dashboard") ? <Dashboard {...{user}}/> : <></>}
             {(page === "portfolio") ? <Portfolio {...{user}}/> : <></>}
+            {(page === "skilltree") ? <SkillTreePage {...{user}}/> : <></>}
 
         </div>
     );
