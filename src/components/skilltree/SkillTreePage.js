@@ -1,11 +1,21 @@
 import styles from "../../styles/skillTree.module.css"
+import Map from "./Map";
 
 const SkillTreePage = () => {
-    return ( 
+
+
+
+    return (
         <div className={styles.subpage}>
-            <h2>My Skill Tree</h2>
+            <div className={styles.leftWrapper}>
+                <h2>My Skill Map</h2>
+                <Map />
+            </div>
+            <div className={styles.rightWrapper}>
+                <h2>Recommended Courses</h2>
+            </div>
         </div>
-     );
+    );
 }
- 
+
 export default SkillTreePage;

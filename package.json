@@ -7,13 +7,16 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "beautiful-skill-tree": "^1.7.1",
+    "dagre": "^0.8.5",
     "firebase": "^10.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-flow-renderer": "^10.3.17",
     "react-icons": "^4.11.0",
     "react-notifications-component": "^4.0.1",
     "react-router-dom": "^6.16.0",
     "react-scripts": "5.0.1",
+    "reactflow": "^11.9.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
