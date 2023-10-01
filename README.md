@@ -3,6 +3,8 @@
 </p>
 
 <h4 align="center">
+  <a href="">Youtube</a>
+  <span> · </span>
   <a href="https://sutdapac-my.sharepoint.com/:p:/g/personal/hunchong_tan_mymail_sutd_edu_sg/EV3HqAVfR3dOgpa5ePQeu_EBIUtIXqXZNBIZ2E5my-I67g?e=w5ZvnT">Pitch Deck</a>
   <span> · </span>
   <a href="https:/github.com/rappleit/Portential/issues">Report a bug</a>
