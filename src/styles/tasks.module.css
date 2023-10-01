@@ -1,0 +1,104 @@
+.subpage {
+    margin-left: 20vw;
+    margin-right: 24px;
+    padding-top: 32px;
+    padding-bottom: 48px;
+    height: 100vh;
+    box-sizing: border-box;
+    overflow-y: auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.tasksCard {
+    background: #fff;
+    border-radius: 8px;
+    padding: 18px 20px;
+    height: 85%;
+    flex: 1;
+}
+
+.inboxCard {
+    background: #fff;
+    border-radius: 8px;
+    padding: 18px 20px;
+    height: 85%;
+    flex: 1;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cardHeader button {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.cardHeader button:hover {
+    background: var(--primary-light);
+}
+
+
+.taskItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--bg-dark);
+    margin-bottom: 14px;
+}
+
+.taskTitle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.taskTitle h4 {
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+.taskLabel {
+    padding: 2px 6px;
+    background: var(--bg-dark);
+    border-radius: 4px;
+}
+
+.taskLabel p {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 4px 0;
+}
+
+.imptTask {
+    background: #FF7276;
+}
+
+.inboxItem {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 16px;
+    background: var(--bg-dark);
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.inboxItem h4 {
+    font-size: 14px;
+    margin: 4px 0;
+}
+
+.inboxItem p {
+    font-size: 10px;
+    margin: 4px 0;
+}

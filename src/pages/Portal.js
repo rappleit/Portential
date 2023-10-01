@@ -9,6 +9,7 @@ import { Store } from 'react-notifications-component';
 import Dashboard from "../components/dashboard/Dashboard";
 import Portfolio from "../components/PORTfolio/Portfolio";
 import SkillTreePage from "../components/skilltree/SkillTreePage";
+import Tasks from "../components/tasks/Tasks";
 
 
 const Portal = () => {
@@ -61,6 +62,7 @@ const Portal = () => {
             {(page === "dashboard") ? <Dashboard {...{user}}/> : <></>}
             {(page === "portfolio") ? <Portfolio {...{user}}/> : <></>}
             {(page === "skilltree") ? <SkillTreePage {...{user}}/> : <></>}
+            {(page === "tasks") ? <Tasks {...{user}}/> : <></>}
 
         </div>
     );
