@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 export default function Recommender () {
     const [comments, setComments] = useState('');
+    const [skills, setSkills] = useState('');
     const [courses, setCourses] = useState('');
 
     const generate = async () => {
@@ -11,6 +12,7 @@ export default function Recommender () {
         }
         else if (courses !== '') {
             setCourses(''); // Reset courses if needed
+            setSkills('');
         }
         let options = {
             method: 'POST',
@@ -28,7 +30,8 @@ export default function Recommender () {
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                setCourses(data['ans']); // TODO change to parse with JSON and process further
+                setCourses(data['courses']); // TODO change to parse with JSON and process further
+                setSkills(data['roadmap'])
             })
             .catch(e => console.log(e));
     };
@@ -37,6 +40,7 @@ export default function Recommender () {
         <div>
             <input placeholder='Enter evaluation comments here!' onChange={event => setComments(event.target.value)}/>
             <button onClick={generate}>Find courses!</button>
+            <input placeholder='Skills' value={skills} readOnly/>
             <input placeholder='Recommended courses will show here!' value={courses} readOnly/>
         </div>
     );
