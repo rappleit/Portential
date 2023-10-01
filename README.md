@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/rappleit/Portential/assets/87000020/48b87be0-d26d-43a4-86cf-74dda888ccca" alt="Portential banner">
+  <img src="https://github.com/rappleit/Portential/assets/87000020/fc2426ac-6495-42e6-8e72-83124841cca7" alt="Portential banner">
 </p>
 
 <h4 align="center">
@@ -16,6 +16,11 @@
 [![GitHub stars](https://img.shields.io/github/stars/rappleit/Portential.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/rappleit/Portential/stargazers/)
 [![GitHub forks](https://img.shields.io/github/forks/rappleit/Portential.svg?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/rappleit/Portential/network/)
 
+[Try Portential Now!]( portential.netlify.app)
+
+## DISCLAIMER!
+Our API keys are confidential. To retrieve the API keys, please refer to our documentation. 
+
 ## About 📘
 
 Portential is the one-stop HR tool for upskilling employees. Integrated with the latest state-of-the-art generative AI, Portential can help recommend suitable online courses and tailor personalised learning paths for employees to upskill with ease.
@@ -24,9 +29,16 @@ Portential works in 3 simple steps.
 
 | LEARN via a skill-tree | GET CERTIFIED with skills | APPRAISE others |
 |---------------|-------------|---------|
-|![skilltree](https://github.com/rappleit/Portential/assets/87000020/5eda9b2b-3dd1-47cd-8be6-2430443ce4ee)|![getcert](https://github.com/rappleit/Portential/assets/87000020/a362e216-94ba-4270-9095-136b306d4750)|![appraise](https://github.com/rappleit/Portential/assets/87000020/b7fa7b8b-1c65-4483-973b-53c9af44df89)|
+|![skilltree](https://github.com/rappleit/Portential/assets/87000020/018d2b3d-aff4-413a-8181-6cd4630724c2)|![getcert](https://github.com/rappleit/Portential/assets/87000020/4153a8bf-298a-4c30-9dd2-b0a29412ae6d)|![appraise](https://github.com/rappleit/Portential/assets/87000020/7b234a25-eabb-4089-a31d-fb6d7d64a895)|
 
-Try out Portential hereL portential.netlify.app
+## Team Members :busts_in_silhouette:
+
+- [Rachel](https://github.com/rappleit)
+- [Zayne](https://github.com/zayne-siew)
+- [Hun Chong](https://github.com/hunchongtan)
+- [Zin](https://github.com/ziin2)
+
+We are all Term 3 students from the Singapore University of Technology and Design (SUTD).
 
 ## Problem ⚠️
 
@@ -48,42 +60,17 @@ We propose a web platform for HR teams to:​
 2. tailor​ **LEARNING PATHS**​ for employees based on their individual skills and career goals​
 3. make upskilling​ **INCLUSIVE**​ and simple for every employee, regardless of technological proficiency​
 
-## Installation 🚧
+## Set Up 🚧
 
-### React dependencies
+For testing, do use these provided test accounts:
 
-```
-yarn add beautiful-skill-tree
-```
+> **email:** johndoe@gmail.com
+> 
+> **password:** 12345678
 
-### Python dependencies
-
-```
-[MacOS]   > source psa/bin/activate
-[Windows] $ source psa\bin\activate
-```
-
-Or, to start from scratch, run
-
-```
-pip install -r requirements.txt
-```
-
-from within your virtual environment.
-
-## Deployment
-
-First, start the Python backend.
-
-```
-flask --app app run
-```
-
-On a separate terminal, start the React localhost.
-
-```
-npm start
-```
+> **email:** janedoa@gmail.com
+> 
+> **password:** 12345678
 
 ## Other Resources 📑
 
