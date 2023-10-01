@@ -116,7 +116,7 @@ def query_to_response(query) -> str:
 
     # Process response: filter out the JSON list from the rest of the response
     try:
-        response = reply[reply.index('['):reply.index('];') + 1]
+        response = reply[reply.index('['):reply.index('];') + 1].replace('\n', '').replace('  ', '')
     except ValueError:
         response = default_response
     finally:

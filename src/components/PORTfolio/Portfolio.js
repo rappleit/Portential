@@ -73,21 +73,21 @@ const Portfolio = ({
                                 </div>
                             </div>
                             <div className={styles.cert}>
-                                <img src="https://ui-avatars.com/api/?background=random&name=S" alt=""/>
+                                <img src="https://ui-avatars.com/api/?background=random&name=FA" alt=""/>
                                 <div>
-                                    <h4>Specialist Diploma in Port Management and Operations</h4>
-                                    <p>Singapore Polytechnic</p>
-                                    <p>Issued Nov 2021</p>
-                                    <p><span style={{fontWeight: "bold"}}>Skills: </span>Port Operations | Forklift Operations | Crane Operations </p>
+                                    <h4>First Aid and CPR Certification </h4>
+                                    <p>Singapore First Aid Training</p>
+                                    <p>Issued Jan 2022</p>
+                                    <p><span style={{fontWeight: "bold"}}>Skills: </span>CPR | First Aid</p>
                                 </div>
                             </div>
                             <div className={styles.cert}>
-                                <img src="https://ui-avatars.com/api/?background=random&name=S" alt=""/>
+                                <img src="https://ui-avatars.com/api/?background=random&name=AI" alt=""/>
                                 <div>
-                                    <h4>Specialist Diploma in Port Management and Operations</h4>
-                                    <p>Singapore Polytechnic</p>
-                                    <p>Issued Nov 2021</p>
-                                    <p><span style={{fontWeight: "bold"}}>Skills: </span>Port Operations | Forklift Operations | Crane Operations </p>
+                                    <h4>AI FOR INDUSTRY - Literacy in AI</h4>
+                                    <p>AI Singapore</p>
+                                    <p>Issued May 2022</p>
+                                    <p><span style={{fontWeight: "bold"}}>Skills: </span>Artificial Intelligence (AI)</p>
                                 </div>
                             </div>
                         </div>
@@ -119,7 +119,7 @@ const Portfolio = ({
                                 </div>
                             </div>
                             <div className={styles.skillItem}>
-                                <h4>Employee Communication</h4>
+                                <h4>Port Operations</h4>
                                 <div className={styles.skillInfo}>
                                     <div className={styles.skillInfoItem}>
                                         <FaHandshake/>
@@ -132,7 +132,7 @@ const Portfolio = ({
                                 </div>
                             </div>
                             <div className={styles.skillItem}>
-                                <h4>Employee Communication</h4>
+                                <h4>Decision Making</h4>
                                 <div className={styles.skillInfo}>
                                     <div className={styles.skillInfoItem}>
                                         <FaHandshake/>
@@ -145,7 +145,7 @@ const Portfolio = ({
                                 </div>
                             </div>
                             <div className={styles.skillItem}>
-                                <h4>Employee Communication</h4>
+                                <h4>Analytical Skills</h4>
                                 <div className={styles.skillInfo}>
                                     <div className={styles.skillInfoItem}>
                                         <FaHandshake/>
