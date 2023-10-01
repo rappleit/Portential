@@ -3,7 +3,7 @@
 </p>
 
 <h4 align="center">
-  <a href="">Youtube</a>
+  <a href="https://youtu.be/Xw7mnYUVE5g?si=YzzrDzZk8J3f5JLn">Youtube</a>
   <span> · </span>
   <a href="https://sutdapac-my.sharepoint.com/:p:/g/personal/hunchong_tan_mymail_sutd_edu_sg/EV3HqAVfR3dOgpa5ePQeu_EBIUtIXqXZNBIZ2E5my-I67g?e=w5ZvnT">Pitch Deck</a>
   <span> · </span>
